@@ -2,7 +2,7 @@ import React, { useState, useContext, useMemo, useRef } from 'react';
 import { StoreContext } from '../../StoreContext';
 import FoodItem from '../../components/foodItem/FoodItem';
 import { menuItem } from '../../assets/assets';
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/footer/Footer";
 import { FaSearch, FaFilter, FaTimes } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';

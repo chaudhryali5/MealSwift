@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/footer/Footer"
 import { useContext, useEffect } from "react"
 import { StoreContext } from "../StoreContext.js"
 import axios from "axios"
