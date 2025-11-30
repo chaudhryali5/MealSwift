@@ -14,7 +14,7 @@ import ScrollToTop from "../components/ScrollToTop.jsx";
 import SmoothScroll from "../components/SmoothScroll.jsx";
 
 import { useState } from "react";
-import Verify from "../verify/verify.jsx";
+import Verify from "../verify/Verify.jsx";
 import MyOrders from "../pages/myOrders/MyOrders.jsx";
 import MealMenu from "../pages/MenuPage/MealMenu.jsx";
 
