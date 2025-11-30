@@ -17,7 +17,7 @@ import menu3 from "./menu_3.jpeg"
 import menu4 from "./menu_4.jpeg"
 import menu5 from "./menu_5.jpeg"
 import menu6 from "./menu_6.jpeg"
-import menu7 from "./Karahi1.jpg"
+import menu7 from "./karahi1.jpg"
 import menu8 from "./menu_8.jpeg"
 
 export const assets = {
