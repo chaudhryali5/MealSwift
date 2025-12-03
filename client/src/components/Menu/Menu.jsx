@@ -12,6 +12,8 @@ const Menu = ({ category }) => {
   const containerRef = useRef(null);
 
   useGSAP(() => {
+    if (menuList.length === 0) return;
+
     gsap.from(".food-card", {
       y: 50,
       opacity: 0,
@@ -24,7 +26,7 @@ const Menu = ({ category }) => {
         toggleActions: "play none none reverse"
       }
     });
-  }, { scope: containerRef });
+  }, { scope: containerRef, dependencies: [menuList, category] });
 
   return (
     <div ref={containerRef} className="w-[80%] mx-auto mt-10">

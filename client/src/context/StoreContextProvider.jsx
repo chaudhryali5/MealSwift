@@ -5,7 +5,8 @@ import axios from "axios";
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:5000"
+  const url = import.meta.env.VITE_API_URL
+  console.log("API URL:", url);
   const [token, setToken] = useState("")
   const [menuList, setMenuList] = useState([])
   if (!cartItems) setCartItems({});
@@ -54,7 +55,7 @@ const StoreContextProvider = ({ children }) => {
   }
 
   const localCartData = async (token) => {
-    const response = await axios.post(url + "/api/v1/get",{}, { headers: { token } })
+    const response = await axios.post(url + "/api/v1/get", {}, { headers: { token } })
     setCartItems(response.data.cartData)
   }
 
