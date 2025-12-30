@@ -13,7 +13,9 @@ const StoreContextProvider = ({ children }) => {
       return {};
     }
   });
-  const url = import.meta.env.VITE_API_URL
+  const rawUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const url = rawUrl.startsWith('http') ? rawUrl : `https://${rawUrl}`;
+  console.log("[API DEBUG] Client Backend URL is:", url);
   const [token, setToken] = useState("")
   const [menuList, setMenuList] = useState([])
 
