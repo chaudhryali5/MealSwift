@@ -3,8 +3,8 @@ import { StoreContext } from '../../StoreContext';
 
 const FoodItem = ({ id, name, price, image }) => {
 
-  const { cartItems, addToCart, removeFromCart ,url } = useContext(StoreContext);
-  const quantity = cartItems[id] || 0;
+  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
+  const quantity = cartItems?.[id] || 0;
   return (
     <div className="relative h-[300px] sm:h-[330px] md:h-[350px] rounded-xl overflow-hidden group cursor-pointer shadow-md">
 

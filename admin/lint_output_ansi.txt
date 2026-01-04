@@ -1,0 +1,61 @@
+
+> admin@0.0.0 lint
+> eslint .
+
+
+C:\Users\AMCS\OneDrive\Desktop\My-Work\Meal-Swift-main\Meal-Swift-main\admin\src\context\AdminContextProvider.jsx
+  17:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  15 |         const urlToken = searchParams.get("token");
+  16 |         if (urlToken) {
+> 17 |             setToken(urlToken);
+     |             ^^^^^^^^ Avoid calling setState() directly within an effect
+  18 |             localStorage.setItem("adminToken", urlToken);
+  19 |             navigate('/');
+  20 |         } else if (token) {  react-hooks/set-state-in-effect
+
+C:\Users\AMCS\OneDrive\Desktop\My-Work\Meal-Swift-main\Meal-Swift-main\admin\src\pages\list\List.jsx
+  27:5  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  25 |
+  26 |   useEffect(() => {
+> 27 |     fetchList();
+     |     ^^^^^^^^^ Avoid calling setState() directly within an effect
+  28 |   }, [])
+  29 |
+  30 |   const removeFood = async (foodId) => {  react-hooks/set-state-in-effect
+  28:6  warning  React Hook useEffect has a missing dependency: 'fetchList'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+
+C:\Users\AMCS\OneDrive\Desktop\My-Work\Meal-Swift-main\Meal-Swift-main\admin\src\pages\order\Order.jsx
+  21:14  error    'error' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        no-unused-vars
+  40:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  38 |
+  39 |   useEffect(() => {
+> 40 |     fetchAllOrders();
+     |     ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  41 |   }, [])
+  42 |
+  43 |   return (  react-hooks/set-state-in-effect
+  41:6   warning  React Hook useEffect has a missing dependency: 'fetchAllOrders'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+
+✖ 6 problems (4 errors, 2 warnings)
+

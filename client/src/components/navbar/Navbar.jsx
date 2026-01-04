@@ -25,6 +25,7 @@ const Navbar = ({ setShowLogin }) => {
 
   // Check if cart has any items
   const hasCartItems = () => {
+    if (!cartItems) return false;
     return Object.keys(cartItems).some(key => cartItems[key] > 0);
   };
 
@@ -39,14 +40,14 @@ const Navbar = ({ setShowLogin }) => {
   return (
     <>
       {/* Main Navbar */}
-      <div className="py-4 px-4 sm:px-6 lg:px-8 h-[80px] sm:h-[90px] lg:h-[100px] flex z-50 justify-between items-center bg-white mx-auto fixed top-0 left-1/2 w-full -translate-x-1/2 shadow-sm">
+      <div className="py-4 px-4 sm:px-6 lg:px-8 h-20 sm:h-[90px] lg:h-[100px] flex z-50 justify-between items-center bg-white mx-auto fixed top-0 left-1/2 w-full -translate-x-1/2 shadow-sm">
 
         {/* Logo */}
         <NavLink to={'/'} onClick={closeSidebar}>
           <img
             src={assets.logo}
             alt="Logo"
-            className="h-[80px] w-[100px] sm:h-[100px] sm:w-[130px] lg:h-[120px] lg:w-[150px]"
+            className="h-20 w-[100px] sm:h-[100px] sm:w-[130px] lg:h-[120px] lg:w-[150px]"
           />
         </NavLink>
 
@@ -149,12 +150,12 @@ const Navbar = ({ setShowLogin }) => {
       </div>
 
       {/* Mobile Sidebar */}
-      <div className={`fixed top-0 left-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl z-[100] transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+      <div className={`fixed top-0 left-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl z-100 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
 
         {/* Sidebar Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-200">
-          <img src={assets.logo} alt="Logo" className="h-[60px] w-[80px]" />
+          <img src={assets.logo} alt="Logo" className="h-[60px] w-20" />
           <button
             onClick={closeSidebar}
             className="text-3xl text-gray-600 hover:text-orange-400 transition-colors"
@@ -233,7 +234,7 @@ const Navbar = ({ setShowLogin }) => {
       {isSidebarOpen && (
         <div
           onClick={closeSidebar}
-          className="fixed inset-0 bg-black/50 z-[90] lg:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-black/50 z-90 lg:hidden transition-opacity duration-300"
         />
       )}
     </>

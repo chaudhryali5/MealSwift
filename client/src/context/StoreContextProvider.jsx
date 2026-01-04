@@ -68,7 +68,7 @@ const StoreContextProvider = ({ children }) => {
 
   const localCartData = async (token) => {
     const response = await axios.post(url + "/api/v1/get", {}, { headers: { token } })
-    setCartItems(response.data.cartData)
+    setCartItems(response.data.cartData || {})
   }
 
   useEffect(() => {
