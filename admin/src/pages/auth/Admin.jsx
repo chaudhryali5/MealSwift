@@ -1,23 +1,24 @@
-import { toast } from "react-toastify"
+import toast from "react-hot-toast"
 import axios from "axios"
 import { useForm } from "react-hook-form"
 import { useContext } from "react"
-import { StoreContext } from "../../StoreContext"
 
+import { ADMIN_LOGIN_URL } from "../../resources/apiAssets"
+import { AdminContext } from "../../AdminContext"
 
 const Admin = () => {
-    const { url } = useContext(StoreContext)
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm()
+    const { setToken } = useContext(AdminContext)
 
     const handleAdminLogin = async (data) => {
         try {
-            const response = await axios.post(url + "/api/v1/admin", data)
+            const response = await axios.post(ADMIN_LOGIN_URL, data)
             if (response.data.status) {
-                localStorage.setItem("adminToken", response.data.token)
+                const token = response.data.token
+                setToken(token)
+                localStorage.setItem("adminToken", token)
+
                 toast.success(response.data.message || "Admin Login Successfully")
-                setTimeout(() => {
-                    window.location.href = `${import.meta.env.VITE_ADMIN_URL}?token=${response.data.token}`
-                }, 1000)
             } else {
                 toast.error(response.data.message || "You are not authorized")
             }

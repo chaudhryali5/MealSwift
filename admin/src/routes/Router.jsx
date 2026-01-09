@@ -7,22 +7,32 @@ import { ToastContainer } from 'react-toastify';
 
 import List from '../pages/list/List'
 import Order from '../pages/order/Order'
-const Router = () => {
+import { useContext } from 'react'
+import { AdminContext } from '../AdminContext'
+import Admin from '../pages/auth/Admin'
 
+const Router = () => {
+  const { token } = useContext(AdminContext)
   return (
     <div>
       <ToastContainer />
-      <NavBar />
-      <hr />
-      <div className='flex '>
-        <SideBar />
-        <Routes>
-          <Route path='/' element={<Navigate to='/list' />} />
-          <Route path='/add' element={<Add />} />
-          <Route path='/list' element={<List />} />
-          <Route path='/orders' element={<Order />} />
-        </Routes>
-      </div>
+      {!token ? (
+        <Admin/>
+      ) : (
+        <>
+          <NavBar />
+          <hr />
+          <div className='flex '>
+            <SideBar />
+            <Routes>
+              <Route path='/' element={<Navigate to='/list' />} />
+              <Route path='/add' element={<Add />} />
+              <Route path='/list' element={<List />} />
+              <Route path='/orders' element={<Order />} />
+            </Routes>
+          </div>
+        </>
+     )}
     </div>
   )
 }

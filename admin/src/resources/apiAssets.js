@@ -5,3 +5,4 @@ export const LIST_SERVICE = BASE_URL + "/list"
 export const ORDER_URI = BASE_URL + "/orderlist"
 export const DELETE_SERVICE = BASE_URL + "/remove"
 export const UPDATE_STATUS = BASE_URL + "/status"
+export const ADMIN_LOGIN_URL = BASE_URL + "/admin";

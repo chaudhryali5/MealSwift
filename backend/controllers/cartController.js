@@ -6,10 +6,8 @@ export const addToCart = async (req, res) => {
         const userData = await userModel.findById(req.body.userId)
 
         if (!userData) {
-            return res.send({ success: false, message: "User not found" })
+            return res.send({ success:false, message:"User not found" })
         }
-
-
 
         let cartData = userData.cartData
         const itemId = req.body.itemId

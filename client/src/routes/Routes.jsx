@@ -1,10 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/home/Home";
 import ContactPage from "../pages/ContactPage";
-import MobilePge from "../pages/MobilePge";
 import AboutUs from "../pages/AboutUs.jsx";
 
-// import LoginPopup from "../components/loginPopUp/LoginPopup";
 import Navbar from "../components/navbar/Navbar";
 import Cart from "../pages/cart/Cart";
 import LoginPopup from "../components/loginPopUp/LoginPopup.jsx";
@@ -17,7 +15,7 @@ import { useState } from "react";
 import Verify from "../verify/Verify.jsx";
 import MyOrders from "../pages/myOrders/MyOrders.jsx";
 import MealMenu from "../pages/MenuPage/MealMenu.jsx";
-import Admin from "../pages/auth/Admin.jsx";
+
 
 
 const Router = () => {
@@ -40,8 +38,7 @@ const Router = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/admin" element={<Admin/>} />
-
+      
         </Routes>
 
       </div>
