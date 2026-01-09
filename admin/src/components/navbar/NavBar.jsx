@@ -6,7 +6,7 @@ import { assets } from "../../assets/assets";
 const NavBar = () => {
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
-    window.location.href = import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173"
+    window.location.href = "https://meal-swift-frontend.vercel.app"
   }
   return (
     <div className="flex justify-between  items-center px-4 py-2 bg-white border-b border-gray-300">
